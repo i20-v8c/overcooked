@@ -1,0 +1,169 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header {
+    background-color: rgb(10, 124, 90);
+    height: 80px;
+    width: 100%;
+}
+header ul {
+    position: absolute;
+    right:5vw;
+    top:0;
+    line-height: 80px;
+}
+h1 {
+    position: absolute;
+    left:60px;
+    top:0;
+    line-height: 80px;
+    color: white;
+}
+header li {
+    display: inline;
+    margin-right: 4vw;
+}
+header a {
+    color: white;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
+.subtitle {
+    background-color: rgb(248, 205, 124);
+    color: white;
+    height:70vh;
+    background-image: url(images/試衣服.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.subtitle h2 {
+    font-size: 60px;
+}
+.subtitle h3 {
+    color: white;
+    font-size: 30px;
+    margin: 12px 0 20px;
+}
+.subtitle a {
+    color:white;
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #73a7d8;
+    border: 2px solid #ACACAC;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.substance {
+    background-color: rgb(48, 113, 73);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.substance p {
+    font-size: 30px;
+    text-align: center;
+    line-height: 2em;
+}
+.substance strong{
+    color: #e4d31f;
+}
+em{
+    color: #73a7d8;
+}
+.guide {
+    height: 30vh;
+    background-color: rgb(48, 113, 73);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.guide h2{
+    font-size: 40px;
+}
+.guide p{
+    font-size: 30px;
+    margin: 12px 0 12px;
+}
+.guide strong{
+    color: #e4d31f;
+}
+.example {
+    display: flex;
+}
+.example img {
+    width: 30%;
+}
+.word {
+    font-size: 70px;
+    width: 70%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.intro {
+    color: aliceblue;
+    background-color: rgb(48, 113, 73);
+    display: flex;
+    flex-direction: column;
+}
+.intro1{
+    padding: 10px 10px;
+}
+.intro2{
+    padding: 10px 10px;
+}
+.intro3{
+    padding: 10px 10px;
+}
+.intro4{
+    padding: 10px 10px;
+}
+.intro h4 {
+    color: #e4d31f;
+}
+.intro strong{
+    color: #e4d31f;
+}
+.aboutus {
+    background-color: rgb(48, 113, 73);
+    color: white;
+    padding: 20px 20px;
+}
+.aboutus h2{
+    color: #e4d31f;
+}
+.why h2 {
+    color: #e4d31f;
+}
+.why {
+    background-color: rgb(48, 113, 73);
+    color: white;
+    padding: 20px 20px;
+}
+body {
+  font-family: 'PingFang TC', sans-serif;
+}
+footer {
+    background-color: black;
+    color: #636060;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    line-height: 1.8em;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>專題介紹</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <header>
+    <h1>專題介紹</h1>
+    <nav>
+    <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="guide.html">使用指南</a></li>
+        <li><a href="aboutus.html">關於我們</a></li>
+        <li><a href="resources.html">資料來源</a></li>
+
+    </ul>
+    </nav>
+    </header>
+    <main>
+    <section class="intro">
+    <p><em>超會搭</em>利用了<strong>OOTDiffusion</strong>，一種創新的虛擬試穿技術，它利用了潛在擴散模型的強大能力，來實現高度真實且可控的服裝更換效果。它的核心目標是解決傳統 VTON 技術（如基於變形/Warping 的方法）常出現的衣服細節遺失、紋理失真或不自然「貼圖」的問題。</p>
+    <p>OOTDiffusion 的流程可以分為三個主要階段：前處理、服裝特徵學習和融合、以及擴散去噪。</p>
+    <div class="intro1">
+    <h4>1.前處理階段</h4>
+    <P>在開始試穿之前，系統需要從輸入圖片中提取關鍵的身體和服裝資訊。</P>
+    <ul>
+    <li>提取人體的骨架關鍵點 (Keypoints)，這決定了人體的姿態。</li>
+    <li>人體圖像進行語義分割 (Semantic Segmentation)，將人體的各個部位（皮膚、頭髮、褲子、上衣等）精確地分離出來。</li>
+    <li>根據用戶想替換的服裝類別（上衣、下裝或洋裝），生成一個遮罩，將原圖中需要被替換的區域遮蓋（通常變為黑色或灰色），留下人體輪廓和未被替換的部位（如頭、手、腳）。</li>
+    <li>服裝圖像被圖像編碼器編碼，提取出高層次的服裝特徵。</li>
+    </ul>
+    </div>
+    <div class="intro2">
+    <h4>2.服裝特徵學習與融合</h4>
+    <p>這是 OOTDiffusion 與其他擴散模型 VTON 最大的不同之處。它避免了將服裝圖像進行變形（Warping），而是直接在潛在空間中學習並融合服裝特徵。</p>
+    <ul>
+    <li>使用一個獨立的網路結構，專門用於學習輸入服裝的精細細節、紋理和褶皺特徵。它將提取的服裝特徵作為條件輸入。</li>
+    <li> 輸出的服裝特徵圖，會被精確地融合到主去噪（即主擴散模型）的自注意力層之中。這種融合是透過將服裝特徵與去噪過程中的人體潛在特徵空間串聯實現的。這使得模型在去噪過程中，能夠同時參考人體的姿態和服裝的細節，從而確保新衣服能夠自然地適應人體的輪廓和姿勢。</li>
+    </ul>
+    </div>
+    <div class="intro3">
+    <h4>3. 擴散去噪階段潛在擴散模型 </h4>
+    <p>將帶有雜訊的被遮罩的人體圖像（經過 VAE 壓縮到潛在空間並加上高斯雜訊）作為輸入。</p>
+    <p>主去噪在多個步驟中逐步去除雜訊，並在每一步都透過「外裝融合」模組接收服裝特徵的引導。這個過程不斷地將服裝特徵繪製到被遮罩的人體區域上，最終生成逼真的試穿結果。</p>
+    <ul>
+    <li> 由於避免了變形過程，OOTDiffusion 能夠更好地保留服裝原始的紋理、圖案和標誌等精細細節</li>
+    <li>透過在訓練中引入外裝丟棄機制，讓模型學會在有無服裝特徵輸入時都能生成圖像。這在推理時啟用的分類器無引導機制，允許用戶透過調節 引導係數來控制服裝特徵的影響強度，讓試穿效果更符合用戶的偏好。</li>
+    </ul>
+    </div>
+    <div class="intro4">
+    <p>OOTDiffusion 支援生成高達 1024*768 像素的高解析度圖像，這是實現商業級虛擬試穿效果的關鍵。</p>
+    <p>同時，我們還有<strong>穿搭推薦功能</strong>以及<strong>智慧衣櫃</strong>來搭配<em>超會搭</em>使用<br><strong>穿搭推薦功能</strong>會依據氣候及流行來推薦服飾而<strong>智慧衣櫃</strong>會告訴你被推薦的衣服在哪個衣架上。<br></p>
+    </div>
+    <img src="images/流程.png" alt="照片換衣流程圖" style="width: 100%; height: auto;">
+    </section>
+    </main>
+    <footer>
+    <p>&copy; 2024 超會搭. 版權所有.</p>
+    </footer>
+</body>
+</html>
